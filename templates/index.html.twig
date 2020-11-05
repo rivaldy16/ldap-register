@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}SSO ID Dashboard{% endblock %}</title>
+
+	{% block stylesheets %}
+	    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+	    <link rel="stylesheet" href="{{ asset('css/unicons.css') }}">
+	    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+	    <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
+	
+	    <!-- MAIN STYLE -->
+	    <link rel="stylesheet" href="{{ asset('css/tooplate-style.css') }}">
+    {% endblock %} 
+    
+  </head>
+  <body>
+
+    <!-- MENU -->
+    <nav class="navbar navbar-expand-sm navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="{{path('landingpage')}}"><i class='uil uil-lock-access'></i> SSO ID</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><span data-hover="About">About</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><span data-hover="Guidelines">Guidelines</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><span data-hover="Contact">Contact</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><span data-hover="Register">Register</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ABOUT -->
+    <section class="about full-screen d-lg-flex justify-content-center align-items-center" id="about">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-7 col-md-12 col-12 d-flex align-items-center">
+                    <div class="about-text">
+                        <h1 class="animated animated-text">
+                            <span class="mr-2">SSO ID - </span>
+                                <div class="animated-info">
+                                    <span class="animated-item">Simple</span>
+                                    <span class="animated-item">Secure</span>
+                                    <span class="animated-item">Efficient</span>
+                                </div>
+                        </h1>
+
+                        <p>Simplify your login process to various online government services.</p>
+                        
+                        <div class="custom-btn-group mt-4">
+                          <a href="{{path('user_register')}}" class="btn mr-lg-2 custom-btn"><i class='uil uil-file-alt'></i> Register</a>
+                          <a href="#" class="btn custom-btn custom-btn-bg custom-btn-link"><i class='uil uil-sign-in-alt'></i> Sign In</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-12 col-12">
+                    <div class="about-image svg">
+                        <img src="images/undraw/undraw_software_engineer_lvl5.svg" class="img-fluid" alt="svg image">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+     <footer class="footer py-3">
+          <div class="container">
+               <div class="row">
+                    <div class="col-lg-12 col-12">                                
+                        <p class="copyright-text text-center mb-0">Copyright &copy; 2020 PTIK-BPPT. All rights reserved</p>
+                    </div>
+                    
+               </div>
+          </div>
+     </footer>
+
+	{% block javascripts %}
+    
+	    <script src="{{ asset('js/jquery-3.3.1.min.js') }} "></script>
+	    <script src="{{ asset('js/popper.min.js') }}"></script>
+	    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+	    <script src="{{ asset('js/Headroom.js') }}"></script>
+	    <script src="{{ asset('js/jQuery.headroom.js') }}"></script>
+	    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+	    <script src="{{ asset('js/smoothscroll.js') }}"></script>
+	    <script src="{{ asset('js/custom.js') }}"></script>
+    
+    {% endblock %}
+
+  </body>
+</html>

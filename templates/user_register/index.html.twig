@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <title>{% block title %}Employment Verification Form{% endblock %}</title>
+
+  {% block stylesheets %}
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../../public/css/user-register.css">
+    {% endblock %}
+ </head>
+
+  <body>
+    <div class="testbox">
+       {{ form_start(form,{'attr': {novalidate:'novalidate', class:'needs-validation'}})}}
+        <div class="banner">
+          <h1>LDAP Register</h1>
+        </div>
+        <p>Silakan isi informasi di bawah ini dan kirimkan formulir verifikasi. Terima kasih!</p>
+        <hr/>
+        <fieldset>
+          <legend>Akun</legend>
+          <div class="item">
+            <label for="nik">NIK<span>*</span></label>
+            {{form_widget(form.nik)}}
+          </div>
+          <div class="item">
+            <label for="password">Password<span>*</span></label>
+            <div class="name-item">
+              <div>
+                {{form_widget(form.password.first, { 'attr': {'class': "span12",
+                  'placeholder': 'password'} })}}
+              </div>
+              <div>
+                {{form_widget(form.password.second, { 'attr': {'class': "span12",
+                  'placeholder': 'confirm password'} })}}
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        </br>
+        <fieldset>
+          <legend>Informasi Diri</legend>
+      <div class="item">
+        <label for="name">Nama<span>*</span></label>
+        <div class="name-item">
+          {{form_widget(form.nama_depan, { 'attr': {'class': "span12",
+                  'placeholder': 'Nama Depan'} })}}
+          {{form_widget(form.nama_belakang, { 'attr': {'class': "span12",
+                  'placeholder': 'Nama Belakang'} })}}
+        </div>
+      </div>
+      <div class="item">
+        <label for="email">Email<span>*</span></label>
+        {{form_widget(form.email)}}
+      </div>
+      <div class="item">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <label for="ktp">Upload KTP<span>*</span></label>
+            {{form_widget(form.ktp)}}
+          </div>
+        </div>
+      </div>
+      <fieldset>
+      <div class="btn-block">
+        <button type="submit" name="submit" id="submit">SUBMIT</button>
+      </div>
+      {{ form_end(form)}}
+    </div>
+  </body>
+  <script type="text/javascript" src="../../public/js/register.js"></script>
+</html>

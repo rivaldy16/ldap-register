@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>{% block title %}User Verification{% endblock %}</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../../public/css/verfication.css">
+<link rel="stylesheet" href="{{ asset('css/tooplate-style.css') }}">
+
+<body>
+{% block body %}
+<div class="container-xl">
+    <div class="table-title">
+        <div class="row">
+            <div class="col-sm-8"><h2>LDAP List <b>Verifikasi</b> User</h2></div>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                         <th>Nik</th>
+                        <th>Nama</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                {% for key,user in user %}
+                <tbody>
+                    <tr>
+                        <td>{{key + 1 }}</td>
+                        <td>{{user.nik}}</td>
+                        <td>{{user.namadepan}} {{user.namabelakang}}</td>
+                        <td>
+                            <a href="{{ path('user_detail', {'id': user.id})}}" class="view" title="View" data-toggle="tooltip"><!-- <i class="material-icons">&#xE417;</i> -->  Detail</a>
+                        </td>
+                    </tr> 
+                {% endfor %}  
+                </tbody>
+            </table>
+        </div>
+    </div>  
+</div>
+{% endblock %}
+</body>
+</html>
