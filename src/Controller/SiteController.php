@@ -11,7 +11,6 @@ class SiteController extends AbstractController
 {
 
     /**
-     *
      * @Route("/", name="landingpage", methods={"GET"})
      */
     public function index()

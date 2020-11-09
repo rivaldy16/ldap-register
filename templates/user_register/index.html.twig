@@ -2,73 +2,130 @@
 <html lang="en">
   <head>
 
-    <title>{% block title %}Employment Verification Form{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>{% block title %}Register{% endblock %}</title>
 
   {% block stylesheets %}
-      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../../public/css/user-register.css">
+
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/user-register.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/unicons.css') }}">
     {% endblock %}
+
+    <script>
+        function checkforblank(){
+            if(document.getElementById('form.nik').value=""){
+                alert('Masukan NIK Anda');
+                return false;
+            }
+            if(document.getElementById('form.nama_depan').value=""){
+                alert('Masukan Nama Anda');
+                return false;
+            }
+            if(document.getElementById('form.nama_belakang').value=""){
+                alert('Masukan Nama Anda');
+                return false;
+            }
+            if(document.getElementById('form.password').value=""){
+                alert('Masukan Password Anda');
+                return false;
+            }
+            if(document.getElementById('form.email').value=""){
+                alert('Masukan Email Anda');
+                return false;
+            }
+            if(document.getElementById('form.ktp').value=""){
+                alert('Masukan Foto KTP Anda');
+                return false;
+            }
+        }
+    </script>
  </head>
 
   <body>
-    <div class="testbox">
-       {{ form_start(form,{'attr': {novalidate:'novalidate', class:'needs-validation'}})}}
-        <div class="banner">
-          <h1>LDAP Register</h1>
+    <nav class="navbar navbar-expand-sm navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="../../public/index.php"><i class='uil uil-lock-access'></i> SSO ID</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
-        <p>Silakan isi informasi di bawah ini dan kirimkan formulir verifikasi. Terima kasih!</p>
-        <hr/>
-        <fieldset>
-          <legend>Akun</legend>
-          <div class="item">
-            <label for="nik">NIK<span>*</span></label>
-            {{form_widget(form.nik)}}
-          </div>
-          <div class="item">
-            <label for="password">Password<span>*</span></label>
-            <div class="name-item">
-              <div>
-                {{form_widget(form.password.first, { 'attr': {'class': "span12",
-                  'placeholder': 'password'} })}}
-              </div>
-              <div>
-                {{form_widget(form.password.second, { 'attr': {'class': "span12",
-                  'placeholder': 'confirm password'} })}}
-              </div>
+    </nav>
+
+    <main class="my-form">
+      <div class="cotainer">
+       <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Register</div>
+                    <div class="card-body">
+                        {{ form_start(form,{'attr': {novalidate:'novalidate', class:'needs-validation', 'onsubmit':'return checkforblank();'}})}}
+                            <div class="form-group row">
+                                <label for="nik" class="col-md-4 col-form-label text-md-right">NIK<span>*</span></label>
+                                <div class="col-md-6">
+                                    {{form_widget(form.nik)}}
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                  <label for="nama" class="col-md-4 col-form-label text-md-right">Nama<span>*</span></label>
+                                  <div class="col-md-6">
+                                    <div>
+                                      {{form_widget(form.nama_depan, { 'attr': {'class': "span12",
+                                        'placeholder': 'Nama Depan'} })}}
+                                    </div>
+                                    <div>
+                                      {{form_widget(form.nama_belakang, { 'attr': {'class': "span12",
+                                        'placeholder': 'Nama Belakang'} })}}
+                                    </div>
+                                  </div>
+                                </div>
+
+                               <div class="form-group row">
+                                  <label for="password" class="col-md-4 col-form-label text-md-right">Password<span>*</span></label>
+                                  <div class="col-md-6">
+                                    <div>
+                                      {{form_widget(form.password.first, { 'attr': {'class': "span12",
+                                        'placeholder': 'Password'} })}}
+                                    </div>
+                                    <div>
+                                      {{form_widget(form.password.second, { 'attr': {'class': "span12",
+                                        'placeholder': 'Confirm Password'} })}}
+                                    </div>
+                                  </div>
+                                </div>
+
+                            <div class="form-group row">
+                                <label for="email" class="col-md-4 col-form-label text-md-right">Email<span>*</span></label>
+                                <div class="col-md-6">
+                                    {{form_widget(form.email)}}
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="phone_number" class="col-md-4 col-form-label text-md-right">Upload KTP<span>*</span></label>
+                                <div class="col-md-6">
+                                    {{form_widget(form.ktp)}}
+                                </div>
+                            </div>
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" name="submit" id="submit" class="btn btn-primary">
+                                    Register
+                                    </button>
+                                </div>
+                            </div>
+                        {{ form_end(form)}}
+                    </div>
+                </div>
             </div>
-          </div>
-        </fieldset>
-        </br>
-        <fieldset>
-          <legend>Informasi Diri</legend>
-      <div class="item">
-        <label for="name">Nama<span>*</span></label>
-        <div class="name-item">
-          {{form_widget(form.nama_depan, { 'attr': {'class': "span12",
-                  'placeholder': 'Nama Depan'} })}}
-          {{form_widget(form.nama_belakang, { 'attr': {'class': "span12",
-                  'placeholder': 'Nama Belakang'} })}}
-        </div>
-      </div>
-      <div class="item">
-        <label for="email">Email<span>*</span></label>
-        {{form_widget(form.email)}}
-      </div>
-      <div class="item">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <label for="ktp">Upload KTP<span>*</span></label>
-            {{form_widget(form.ktp)}}
-          </div>
-        </div>
-      </div>
-      <fieldset>
-      <div class="btn-block">
-        <button type="submit" name="submit" id="submit">SUBMIT</button>
-      </div>
-      {{ form_end(form)}}
     </div>
-  </body>
+  </main>
+</body>
   <script type="text/javascript" src="../../public/js/register.js"></script>
 </html>

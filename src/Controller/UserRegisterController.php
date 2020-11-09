@@ -25,7 +25,7 @@ class UserRegisterController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted( )&& $form->isValid()){
+        if ($form->isSubmitted( )&& $form->isValid()){ 
             $entityManager = $this->getDoctrine()->getManager();
 
             $user->setNik($request->request->get('user')['nik']);
@@ -52,5 +52,14 @@ class UserRegisterController extends AbstractController
         return $this->render('user_register/index.html.twig', [
             'form' =>$form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/", name="landingpage", methods={"GET"})
+     */
+
+    public function home()
+    {
+        return $this->render('index.html.twig');
     }
 }
